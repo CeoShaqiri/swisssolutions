@@ -6,6 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Swisssolution A R - Luxury Furniture & Interior Design</title>
     <style>
+        /* Responsive Navbar */
+        @media (max-width: 800px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 12px 16px;
+                position: relative;
+            }
+            .navbar a {
+                font-size: 1.1em;
+                margin: 8px 0;
+                padding: 12px 18px;
+                width: 100%;
+                box-sizing: border-box;
+                border-radius: 8px;
+            }
+            .navbar-toggle {
+                display: block;
+                background: none;
+                border: none;
+                color: #fff;
+                font-size: 2em;
+                position: absolute;
+                top: 12px;
+                right: 18px;
+                z-index: 10;
+                cursor: pointer;
+            }
+            .navbar-links {
+                display: none;
+                width: 100%;
+            }
+            .navbar-links.active {
+                display: flex;
+                flex-direction: column;
+            }
+        }
     .lazy-animate {
         opacity: 0;
         transform: translateY(40px) scale(0.96);
@@ -373,11 +410,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <body>
     <nav class="navbar lazy-animate">
-        <a href="#">Home</a>
-        <a href="#">Furniture</a>
-        <a href="#">Interior Design</a>
-        <a href="#">Umzüge</a>
-        <a href="#">Contact</a>
+        <button class="navbar-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.navbar-links').classList.toggle('active')">
+            &#9776;
+        </button>
+        <div class="navbar-links">
+            <a href="#">Home</a>
+            <a href="#">Furniture</a>
+            <a href="#">Interior Design</a>
+            <a href="#">Umzüge</a>
+            <a href="#">Contact</a>
+        </div>
     </nav>
     <section class="hero lazy-animate">
         <img class="logo" src="swiss.solution-logo.png" alt="Swisssolution A R Logo" loading="lazy" />
