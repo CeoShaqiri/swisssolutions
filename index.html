@@ -6,6 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Swisssolution A R - Luxury Furniture & Interior Design</title>
     <style>
+        /* Contact form mobile fix */
+        @media (max-width: 600px) {
+            .contact-form-container {
+                padding: 16px 4px 12px 4px !important;
+                max-width: 98vw !important;
+            }
+
+            .lux-contact-form input,
+            .lux-contact-form textarea {
+                font-size: 1em;
+                padding: 10px 8px;
+            }
+        }
+
         /* Responsive Navbar */
         @media (max-width: 800px) {
             .navbar {
@@ -14,6 +28,7 @@
                 padding: 12px 16px;
                 position: relative;
             }
+
             .navbar a {
                 font-size: 1.1em;
                 margin: 8px 0;
@@ -22,6 +37,7 @@
                 box-sizing: border-box;
                 border-radius: 8px;
             }
+
             .navbar-toggle {
                 display: block;
                 background: none;
@@ -34,25 +50,30 @@
                 z-index: 10;
                 cursor: pointer;
             }
+
             .navbar-links {
                 display: none;
                 width: 100%;
             }
+
             .navbar-links.active {
                 display: flex;
                 flex-direction: column;
             }
         }
-    .lazy-animate {
-        opacity: 0;
-        transform: translateY(40px) scale(0.96);
-        transition: opacity 0.8s cubic-bezier(.5,.1,.2,1), transform 0.8s cubic-bezier(.5,.1,.2,1);
-        will-change: opacity, transform;
-    }
-    .lazy-animate.visible {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
+
+        .lazy-animate {
+            opacity: 0;
+            transform: translateY(40px) scale(0.96);
+            transition: opacity 0.8s cubic-bezier(.5, .1, .2, 1), transform 0.8s cubic-bezier(.5, .1, .2, 1);
+            will-change: opacity, transform;
+        }
+
+        .lazy-animate.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
         body::before {
             content: '';
             position: fixed;
@@ -303,6 +324,7 @@
             color: #fff;
             text-shadow: 0 0 8px #d32f2f44;
         }
+
         .contact-form-container {
             display: flex;
             flex-direction: column;
@@ -316,16 +338,19 @@
             border: 2px solid #d32f2f;
             padding: 36px 32px 28px 32px;
         }
+
         .lux-contact-form {
             width: 100%;
             display: flex;
             flex-direction: column;
             gap: 18px;
         }
+
         .lux-contact-form .form-row {
             display: flex;
             gap: 18px;
         }
+
         .lux-contact-form input,
         .lux-contact-form textarea {
             flex: 1;
@@ -340,11 +365,13 @@
             outline: none;
             transition: border 0.2s, box-shadow 0.2s;
         }
+
         .lux-contact-form input:focus,
         .lux-contact-form textarea:focus {
             border: 2px solid #fff;
             box-shadow: 0 0 8px #d32f2f88;
         }
+
         .lux-contact-form button {
             background: linear-gradient(120deg, #d32f2f 0%, #fff 100%);
             color: #111;
@@ -357,11 +384,13 @@
             box-shadow: 0 2px 8px #d32f2f44;
             transition: background 0.2s, color 0.2s, box-shadow 0.2s;
         }
+
         .lux-contact-form button:hover {
             background: linear-gradient(120deg, #fff 0%, #d32f2f 100%);
             color: #d32f2f;
             box-shadow: 0 0 18px #d32f2f88;
         }
+
         .lux-social-links {
             display: flex;
             align-items: center;
@@ -371,6 +400,7 @@
             color: #fff;
             justify-content: center;
         }
+
         .lux-social-links .social-icon {
             display: flex;
             align-items: center;
@@ -384,6 +414,7 @@
             box-shadow: 0 2px 8px #d32f2f44;
             text-decoration: none;
         }
+
         .lux-social-links .social-icon:hover {
             background: #d32f2f;
             border: 2px solid #fff;
@@ -392,25 +423,26 @@
     </style>
 </head>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
-            }
+    document.addEventListener('DOMContentLoaded', function () {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('.lazy-animate').forEach(el => {
+            observer.observe(el);
         });
-    }, { threshold: 0.15 });
-    document.querySelectorAll('.lazy-animate').forEach(el => {
-        observer.observe(el);
     });
-});
 </script>
 </head>
 
 <body>
     <nav class="navbar lazy-animate">
-        <button class="navbar-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.navbar-links').classList.toggle('active')">
+        <button class="navbar-toggle" aria-label="Toggle navigation"
+            onclick="document.querySelector('.navbar-links').classList.toggle('active')">
             &#9776;
         </button>
         <div class="navbar-links">
@@ -423,20 +455,22 @@ document.addEventListener('DOMContentLoaded', function() {
     </nav>
     <section class="hero lazy-animate">
         <img class="logo" src="swiss.solution-logo.png" alt="Swisssolution A R Logo" loading="lazy" />
-        <div class="hero-title">Swiss Solution <span style="color:#d32f2f">A</span> R</div>
+        <div class="hero-title">Swiss Solution <span style="color:#ac1d1d">A</span> R</div>
         <div class="hero-desc">Luxury Furniture | Interior Design | Moving Services</div>
     </section>
     <main>
         <section class="about-section lazy-animate" id="home">
-            <h2>About Swiss Solution A R</h2>
+            <h2>About Swiss Solution AR</h2>
             <p>
-                Step into a world where luxury is redefined. At Swiss Solution A R, we don’t just furnish spaces—we craft
+                Step into a world where luxury is redefined. At Swiss Solution A R, we don’t just furnish spaces—we
+                craft
                 experiences. Our exclusive collection of luxury furniture, visionary interior design, and elite moving
                 services are reserved for those who demand the extraordinary. Every detail is a statement of Swiss
                 precision, every material is hand-selected for perfection, and every project is a masterpiece of comfort
                 and style.<br><br>
                 Join a select circle of connoisseurs who value elegance, innovation, and seamless service. Let us
-                transform your home or business into a sanctuary of sophistication. Swiss Solution A R: Where exclusivity
+                transform your home or business into a sanctuary of sophistication. Swiss Solution A R: Where
+                exclusivity
                 meets artistry, and your dreams become reality.
             </p>
         </section>
@@ -493,16 +527,32 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="lux-social-links lazy-animate">
                     <span>Connect with us:</span>
                     <a href="#" title="Instagram" class="social-icon">
-                        <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="12" stroke="#d32f2f" stroke-width="2" fill="none"/><path d="M16 11a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" fill="#d32f2f"/><circle cx="24" cy="10" r="1.5" fill="#d32f2f"/></svg>
+                        <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+                            <circle cx="16" cy="16" r="12" stroke="#d32f2f" stroke-width="2" fill="none" />
+                            <path d="M16 11a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
+                                fill="#d32f2f" />
+                            <circle cx="24" cy="10" r="1.5" fill="#d32f2f" />
+                        </svg>
                     </a>
                     <a href="#" title="Facebook" class="social-icon">
-                        <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="12" stroke="#d32f2f" stroke-width="2" fill="none"/><path d="M20 12h-2a2 2 0 0 0-2 2v2h-2v2h2v4h2v-4h2l1-2h-3v-2a1 1 0 0 1 1-1h2v-2z" fill="#d32f2f"/></svg>
+                        <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+                            <circle cx="16" cy="16" r="12" stroke="#d32f2f" stroke-width="2" fill="none" />
+                            <path d="M20 12h-2a2 2 0 0 0-2 2v2h-2v2h2v4h2v-4h2l1-2h-3v-2a1 1 0 0 1 1-1h2v-2z"
+                                fill="#d32f2f" />
+                        </svg>
                     </a>
                     <a href="#" title="X" class="social-icon">
-                        <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="12" stroke="#d32f2f" stroke-width="2" fill="none"/><path d="M12 12l8 8M20 12l-8 8" stroke="#d32f2f" stroke-width="2"/></svg>
+                        <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+                            <circle cx="16" cy="16" r="12" stroke="#d32f2f" stroke-width="2" fill="none" />
+                            <path d="M12 12l8 8M20 12l-8 8" stroke="#d32f2f" stroke-width="2" />
+                        </svg>
                     </a>
                     <a href="#" title="TikTok" class="social-icon">
-                        <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="12" stroke="#d32f2f" stroke-width="2" fill="none"/><path d="M20 12v4.5a4.5 4.5 0 1 1-4.5-4.5" stroke="#d32f2f" stroke-width="2"/><rect x="19" y="11" width="2" height="2" rx="1" fill="#d32f2f"/></svg>
+                        <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+                            <circle cx="16" cy="16" r="12" stroke="#d32f2f" stroke-width="2" fill="none" />
+                            <path d="M20 12v4.5a4.5 4.5 0 1 1-4.5-4.5" stroke="#d32f2f" stroke-width="2" />
+                            <rect x="19" y="11" width="2" height="2" rx="1" fill="#d32f2f" />
+                        </svg>
                     </a>
                 </div>
             </div>
@@ -510,475 +560,8 @@ document.addEventListener('DOMContentLoaded', function() {
     </main>
 </body>
 
-=======
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Swisssolution A R - Luxury Furniture & Interior Design</title>
-    <style>
-    .lazy-animate {
-        opacity: 0;
-        transform: translateY(40px) scale(0.96);
-        transition: opacity 0.8s cubic-bezier(.5,.1,.2,1), transform 0.8s cubic-bezier(.5,.1,.2,1);
-        will-change: opacity, transform;
-    }
-    .lazy-animate.visible {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -1;
-            pointer-events: none;
-            background:
-                url('zebrastripes_ar.png') center center / cover repeat;
-            opacity: 0.28;
-        }
 
-        @keyframes stripesMove {
-            0% {
-                background-position: 0 0;
-            }
 
-            100% {
-                background-position: 50px 200px;
-            }
-        }
-
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
-            background: #111;
-            color: #fff;
-            min-height: 100vh;
-        }
-
-        .navbar {
-            background: #222;
-            padding: 18px 36px;
-            display: flex;
-            justify-content: center;
-            box-shadow: 0 8px 32px #d32f2f44;
-        }
-
-        .navbar a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 20px;
-            margin: 0 22px;
-            padding: 8px 18px;
-            border-radius: 10px;
-            transition: color 0.3s, background 0.3s, box-shadow 0.3s, transform 0.2s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .navbar a::after {
-            content: '';
-            display: block;
-            position: absolute;
-            left: 20%;
-            bottom: 4px;
-            width: 60%;
-            height: 3px;
-            background: linear-gradient(90deg, #d32f2f 0%, #fff 100%);
-            border-radius: 2px;
-            opacity: 0;
-            box-shadow: 0 0 8px #d32f2f88;
-            transition: opacity 0.3s, width 0.3s;
-        }
-
-        .navbar a:hover {
-            color: #d32f2f;
-            background: linear-gradient(120deg, #222 0%, #d32f2f 100%);
-            box-shadow: 0 0 24px 8px #d32f2f88, 0 0 48px 16px #fff;
-            transform: translateY(-6px) scale(1.12);
-        }
-
-        .navbar a:hover::after {
-            opacity: 1;
-            width: 80%;
-            left: 10%;
-        }
-
-        .navbar a:hover {
-            color: #d32f2f;
-            background: linear-gradient(120deg, #fff 0%, #d32f2f 100%);
-            box-shadow: 0 0 24px 8px #d32f2f88, 0 0 48px 16px #fff;
-            transform: translateY(-6px) scale(1.12);
-        }
-
-        .hero {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 60px 20px 40px 20px;
-            background: linear-gradient(120deg, #111 60%, #d32f2f 100%);
-            position: relative;
-        }
-
-        .logo {
-            width: 120px;
-            height: 120px;
-            margin-bottom: 18px;
-            animation: logoFadeIn 1.2s ease;
-        }
-
-        @keyframes logoFadeIn {
-            0% {
-                opacity: 0;
-                transform: scale(0.7);
-            }
-
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        .hero-title {
-            font-size: 2.6em;
-            font-weight: bold;
-            color: #fff;
-            text-shadow: 0 0 18px #d32f2f88;
-            margin-bottom: 10px;
-            letter-spacing: 2px;
-            animation: fadeInUp 1.2s 0.3s both;
-        }
-
-        .hero-desc {
-            font-size: 1.3em;
-            color: #fff;
-            margin-bottom: 30px;
-            animation: fadeInUp 1.2s 0.6s both;
-        }
-
-        @keyframes fadeInUp {
-            0% {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .cards-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 36px;
-            margin: 40px auto 0 auto;
-            max-width: 1200px;
-        }
-
-        .lux-card {
-            background: linear-gradient(120deg, #111 0%, #222 100%);
-            color: #fff;
-            border-radius: 18px;
-            box-shadow: 0 4px 18px 0 #d32f2f44, 0 1.5px 4px #0008;
-            border: 2px solid #d32f2f;
-            padding: 32px 28px;
-            width: 280px;
-            min-height: 180px;
-            text-align: center;
-            position: relative;
-            transition: transform 0.25s, box-shadow 0.25s, background 0.25s, color 0.25s;
-            z-index: 1;
-            overflow: hidden;
-            animation: cardFloat 1.2s ease;
-        }
-
-        .lux-section-title {
-            text-align: center;
-            font-size: 2em;
-            font-weight: bold;
-            color: #d32f2f;
-            text-shadow: 0 0 12px #fff2;
-            margin-bottom: 24px;
-            letter-spacing: 2px;
-            animation: fadeInUp 1.2s 0.3s both;
-        }
-
-        .lux-card:hover {
-            transform: translateY(-12px) scale(1.06);
-            box-shadow: 0 0 32px 8px #d32f2f88, 0 0 64px 16px #fff2;
-            background: linear-gradient(120deg, #222 0%, #111 100%);
-            color: #d32f2f;
-        }
-
-        @keyframes cardFloat {
-            0% {
-                opacity: 0;
-                transform: translateY(30px) scale(0.95);
-            }
-
-            100% {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-
-        .lux-card h2 {
-            margin-top: 0;
-            font-size: 1.3em;
-            letter-spacing: 1px;
-            color: #fff;
-            font-family: 'Georgia', serif;
-            text-shadow: 0 0 8px #d32f2f88;
-        }
-
-        .lux-card p {
-            font-size: 1em;
-            color: #fff;
-            margin-bottom: 0;
-            font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
-        }
-
-        .about-section {
-            max-width: 1100px;
-            margin: 64px auto 48px auto;
-            background: linear-gradient(120deg, #111 60%, #222 100%);
-            border-radius: 24px;
-            box-shadow: 0 8px 32px #d32f2f44;
-            padding: 64px 48px;
-            text-align: center;
-            color: #fff;
-            position: relative;
-            font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
-            border: 2px solid #d32f2f;
-            overflow: hidden;
-        }
-
-        .about-section h2 {
-            font-family: 'Georgia', serif;
-            color: #d32f2f;
-            font-size: 2.8em;
-            margin-bottom: 24px;
-            letter-spacing: 2px;
-            text-shadow: 0 0 12px #fff2;
-        }
-
-        .about-section p {
-            font-size: 1.35em;
-            margin-bottom: 0;
-            line-height: 1.7;
-            font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
-            color: #fff;
-            text-shadow: 0 0 8px #d32f2f44;
-        }
-        .contact-form-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 32px;
-            margin: 40px auto 0 auto;
-            max-width: 600px;
-            background: linear-gradient(120deg, #111 0%, #222 100%);
-            border-radius: 18px;
-            box-shadow: 0 4px 18px 0 #d32f2f44, 0 1.5px 4px #0008;
-            border: 2px solid #d32f2f;
-            padding: 36px 32px 28px 32px;
-        }
-        .lux-contact-form {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
-        }
-        .lux-contact-form .form-row {
-            display: flex;
-            gap: 18px;
-        }
-        .lux-contact-form input,
-        .lux-contact-form textarea {
-            flex: 1;
-            padding: 12px 16px;
-            border-radius: 10px;
-            border: 1.5px solid #d32f2f;
-            background: #181818;
-            color: #fff;
-            font-size: 1em;
-            font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
-            margin-bottom: 0;
-            outline: none;
-            transition: border 0.2s, box-shadow 0.2s;
-        }
-        .lux-contact-form input:focus,
-        .lux-contact-form textarea:focus {
-            border: 2px solid #fff;
-            box-shadow: 0 0 8px #d32f2f88;
-        }
-        .lux-contact-form button {
-            background: linear-gradient(120deg, #d32f2f 0%, #fff 100%);
-            color: #111;
-            border: none;
-            border-radius: 10px;
-            padding: 12px 0;
-            font-size: 1.1em;
-            font-weight: bold;
-            cursor: pointer;
-            box-shadow: 0 2px 8px #d32f2f44;
-            transition: background 0.2s, color 0.2s, box-shadow 0.2s;
-        }
-        .lux-contact-form button:hover {
-            background: linear-gradient(120deg, #fff 0%, #d32f2f 100%);
-            color: #d32f2f;
-            box-shadow: 0 0 18px #d32f2f88;
-        }
-        .lux-social-links {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-            margin-top: 12px;
-            font-size: 1.1em;
-            color: #fff;
-            justify-content: center;
-        }
-        .lux-social-links .social-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 38px;
-            height: 38px;
-            background: #181818;
-            border-radius: 50%;
-            border: 1.5px solid #d32f2f;
-            transition: background 0.2s, box-shadow 0.2s, border 0.2s;
-            box-shadow: 0 2px 8px #d32f2f44;
-            text-decoration: none;
-        }
-        .lux-social-links .social-icon:hover {
-            background: #d32f2f;
-            border: 2px solid #fff;
-            box-shadow: 0 0 18px #d32f2f88;
-        }
-    </style>
-</head>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.15 });
-    document.querySelectorAll('.lazy-animate').forEach(el => {
-        observer.observe(el);
-    });
-});
-</script>
-</head>
-
-<body>
-    <nav class="navbar lazy-animate">
-        <a href="#">Home</a>
-        <a href="#">Furniture</a>
-        <a href="#">Interior Design</a>
-        <a href="#">Umzüge</a>
-        <a href="#">Contact</a>
-    </nav>
-    <section class="hero lazy-animate">
-        <img class="logo" src="swiss.solution-logo.png" alt="Swisssolution A R Logo" loading="lazy" />
-        <div class="hero-title">Swiss Solution <span style="color:#d32f2f">A</span> R</div>
-        <div class="hero-desc">Luxury Furniture | Interior Design | Moving Services</div>
-    </section>
-    <main>
-        <section class="about-section lazy-animate" id="home">
-            <h2>About Swiss Solution A R</h2>
-            <p>
-                Step into a world where luxury is redefined. At Swiss Solution A R, we don’t just furnish spaces—we craft
-                experiences. Our exclusive collection of luxury furniture, visionary interior design, and elite moving
-                services are reserved for those who demand the extraordinary. Every detail is a statement of Swiss
-                precision, every material is hand-selected for perfection, and every project is a masterpiece of comfort
-                and style.<br><br>
-                Join a select circle of connoisseurs who value elegance, innovation, and seamless service. Let us
-                transform your home or business into a sanctuary of sophistication. Swiss Solution A R: Where exclusivity
-                meets artistry, and your dreams become reality.
-            </p>
-        </section>
-        <section class="lux-section" id="furniture">
-            <h2 class="lux-section-title lazy-animate">Buy & Sell Luxury Furniture</h2>
-            <div class="cards-container lazy-animate">
-                <div class="lux-card lazy-animate">
-                    <h2>Exclusive Furniture</h2>
-                    <p>Discover and trade exclusive furniture pieces for your home or office.</p>
-                </div>
-                <div class="lux-card lazy-animate">
-                    <h2>Antique & Modern</h2>
-                    <p>From timeless antiques to modern masterpieces, find your perfect match.</p>
-                </div>
-            </div>
-        </section>
-        <section class="lux-section" id="interior-design">
-            <h2 class="lux-section-title lazy-animate">Interior Design</h2>
-            <div class="cards-container lazy-animate">
-                <div class="lux-card lazy-animate">
-                    <h2>Visionary Design</h2>
-                    <p>Transform your space with our expert design team and bespoke solutions.</p>
-                </div>
-                <div class="lux-card lazy-animate">
-                    <h2>Personalized Concepts</h2>
-                    <p>We create interiors that reflect your personality and aspirations.</p>
-                </div>
-            </div>
-        </section>
-        <section class="lux-section" id="umzuege">
-            <h2 class="lux-section-title lazy-animate">Umzüge (Moving)</h2>
-            <div class="cards-container lazy-animate">
-                <div class="lux-card lazy-animate">
-                    <h2>Elite Moving</h2>
-                    <p>Professional moving services for a seamless and stress-free experience.</p>
-                </div>
-                <div class="lux-card lazy-animate">
-                    <h2>Care & Precision</h2>
-                    <p>Swiss precision and care for your valuable belongings.</p>
-                </div>
-            </div>
-        </section>
-        <section class="lux-section" id="contact">
-            <h2 class="lux-section-title lazy-animate">Contact</h2>
-            <div class="contact-form-container lazy-animate">
-                <form class="lux-contact-form lazy-animate">
-                    <div class="form-row lazy-animate">
-                        <input type="text" name="name" placeholder="Your Name" required>
-                        <input type="email" name="email" placeholder="Your Email" required>
-                    </div>
-                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-                    <button type="submit">Send Message</button>
-                </form>
-                <div class="lux-social-links lazy-animate">
-                    <span>Connect with us:</span>
-                    <a href="#" title="Instagram" class="social-icon">
-                        <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="12" stroke="#d32f2f" stroke-width="2" fill="none"/><path d="M16 11a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" fill="#d32f2f"/><circle cx="24" cy="10" r="1.5" fill="#d32f2f"/></svg>
-                    </a>
-                    <a href="#" title="Facebook" class="social-icon">
-                        <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="12" stroke="#d32f2f" stroke-width="2" fill="none"/><path d="M20 12h-2a2 2 0 0 0-2 2v2h-2v2h2v4h2v-4h2l1-2h-3v-2a1 1 0 0 1 1-1h2v-2z" fill="#d32f2f"/></svg>
-                    </a>
-                    <a href="#" title="X" class="social-icon">
-                        <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="12" stroke="#d32f2f" stroke-width="2" fill="none"/><path d="M12 12l8 8M20 12l-8 8" stroke="#d32f2f" stroke-width="2"/></svg>
-                    </a>
-                    <a href="#" title="TikTok" class="social-icon">
-                        <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="12" stroke="#d32f2f" stroke-width="2" fill="none"/><path d="M20 12v4.5a4.5 4.5 0 1 1-4.5-4.5" stroke="#d32f2f" stroke-width="2"/><rect x="19" y="11" width="2" height="2" rx="1" fill="#d32f2f"/></svg>
-                    </a>
-                </div>
-            </div>
-        </section>
-    </main>
-</body>
 
 </html>
