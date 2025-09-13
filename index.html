@@ -6,6 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Swisssolution A R - Luxury Furniture & Interior Design</title>
     <style>
+        /* Contact form mobile fix: stack inputs vertically and fit container */
+        @media (max-width: 600px) {
+            .contact-form-container {
+                padding: 16px 4px 12px 4px !important;
+                max-width: 98vw !important;
+            }
+            .lux-contact-form .form-row {
+                flex-direction: column !important;
+                gap: 8px !important;
+            }
+            .lux-contact-form input,
+            .lux-contact-form textarea {
+                font-size: 1em;
+                padding: 10px 8px;
+                width: 100% !important;
+                box-sizing: border-box;
+            }
+        }
         /* Contact form mobile fix */
         @media (max-width: 600px) {
             .contact-form-container {
